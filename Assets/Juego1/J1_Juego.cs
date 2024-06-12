@@ -22,11 +22,12 @@ public class J1_Juego : MonoBehaviour
 
     const float TIEMPO_ESPERA = .5f, MAX_ESPERA_IA = 2;
 
-    void Iniciar(float rotacion, int max_flechas)
+    public void Iniciar(float rotacion, int max_flechas)
     {
         this.rotacion = rotacion;
         this.max_flechas = max_flechas;
 
+        centro.gameObject.SetActive(true);
 
         Crear(0);
         Crear(1);
