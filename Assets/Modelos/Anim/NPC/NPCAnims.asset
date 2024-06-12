@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: NPCAnims
+  m_EditorClassIdentifier: Assembly-CSharp::NPCAnims
+  clips:
+  - {fileID: 7400000, guid: ab65aaf3cc1fb7b4180acdf01d7d3b60, type: 2}
+  - {fileID: 7400000, guid: e9f7c52cf41bb054eb13b5084f45cecb, type: 2}
+  - {fileID: 7400000, guid: 9a59e5fedfc40ab49ac6df7e5dc7ebca, type: 2}
+  - {fileID: 7400000, guid: 6cfee0560dc52654992a7b587417ea4d, type: 2}
+  - {fileID: 7400000, guid: 193731ed562af914daf59b1349dc606a, type: 2}
+  - {fileID: 7400000, guid: ffc6804e5ea4f674da9496f75dd8d105, type: 2}
