@@ -86,6 +86,7 @@ public class J1_Juego : MonoBehaviour
 
     void Lanzar(int persona) 
     {
+        if (instanciadas == null || instanciadas[persona] == null) return;
         instanciadas[persona].GetComponent<J1_Flecha>().Lanzar(this, velocidad, centro, particulas, persona);
         Crear(persona);
     }
