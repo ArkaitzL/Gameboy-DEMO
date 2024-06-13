@@ -24,11 +24,23 @@ public class Niveles : MonoBehaviour
 
     private void Update()
     {
-        if (cant_enemigos == perdidos_enemigos && niveles.Length -1 != nivel_actual)
+        //TEMPORAL ***************
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("Ganado");
-            niveles[nivel_actual].GetComponentInChildren<Puerta>().Abrir();
+            Destroy(niveles[nivel_actual].Find("Puerta").gameObject);
 
+            if (niveles.Length - 1 == nivel_actual) return;
+            ProximoNivel();
+        }
+        //TEMPORAL ***************
+
+        if (cant_enemigos == perdidos_enemigos)
+        {
+            Debug.Log("Ganado");
+            Destroy(niveles[nivel_actual].Find("Puerta").gameObject);
+
+            if (niveles.Length - 1 == nivel_actual) return;
             ProximoNivel();
         }
     }
