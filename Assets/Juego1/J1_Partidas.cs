@@ -22,15 +22,5 @@ public class J1_Partidas : MonoBehaviour
 
             juego.Iniciar(giro, flechas);
         });
-        //Cuando detecta que no quedan flechas la termina -> Victoria/Derrota
-    }
-
-    private void Update()
-    {
-        //ELIMINAR
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Controlador.inst.ModoNormal();
-        }
     }
 }

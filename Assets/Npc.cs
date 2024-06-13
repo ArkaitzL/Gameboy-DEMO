@@ -23,5 +23,11 @@ public class Npc : MonoBehaviour
 
         animator.Play(seleccionado.name);
     }
+
+    public void Perder() 
+    {
+        tag = "Untagged";
+        animator.Play("Sentado");    
+    }
 }
 

@@ -1435,10 +1435,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ec8ebb228c36e49b05d6bdc5590c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_giro: 20
-  max_giro: 60
-  min_flechas: 8
-  max_flechas: 15
+  min_giro: 80
+  max_giro: 200
+  min_flechas: 10
+  max_flechas: 20
 --- !u!1 &8576449867732384601
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,12 +17,10 @@ public class Movimiento : MonoBehaviour
 
     [Header("Otros")]
     [SerializeField] Controles controles;
-    [SerializeField] Animator transiciones;
 
     Rigidbody rb;
     CharacterController cc;
 
-    const float DISTANCIA_INTERACCION = 3;
 
     void Awake()
     {
@@ -41,7 +39,6 @@ public class Movimiento : MonoBehaviour
         if (Controlador.modoJuego) return;
         
         Rotar();
-        Interactuar();
     }
 
     void Mover()
@@ -70,21 +67,6 @@ public class Movimiento : MonoBehaviour
             rotacionX -= mouseY;
             rotacionX = Mathf.Clamp(rotacionX, anguloMin, anguloMax);
             Camera.main.transform.localRotation = Quaternion.Euler(rotacionX, 0f, 0f);
-        }
-    }
-
-    void Interactuar() 
-    {
-        if (Input.GetKeyDown(controles.interactuar)) 
-        {
-            Vector3 direccion = transform.forward;
-
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, direccion, out hit, DISTANCIA_INTERACCION) && hit.collider.CompareTag("NPC"))
-            {
-                transiciones.SetTrigger("Abrir");
-                Controlador.modoJuego = true;
-            }
         }
     }
 }

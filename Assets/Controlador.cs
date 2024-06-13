@@ -11,15 +11,26 @@ public class Controlador : MonoBehaviour
 
     GameObject juego;
 
+    public static Animator transiciones;
     public static bool modoJuego = false;
+    public static Npc desafiado = null;
+    public static bool victoria;
+
     public static Controlador inst;
 
     private void Awake()
     {
         inst = this;
+        transiciones = GetComponent<Animator>();
     }
 
-    public void ModoJuego() 
+    public void CambiarModo() 
+    {
+        if (!camara1.activeSelf) ModoNormal();
+        else ModoJuego();
+    }
+
+    void ModoJuego() 
     {
         if (juegos.Count != 0)
         {
@@ -34,10 +45,15 @@ public class Controlador : MonoBehaviour
         cursor.SetActive(false);
     }
 
-    public void ModoNormal() 
+    void ModoNormal() 
     {
-        Destroy(juego);
         modoJuego = false;
+
+        Destroy(juego);
+        if (victoria) desafiado.Perder();
+
+        modoJuego = false;
+        desafiado = null;
 
         camara1.SetActive(true);
         camara2.SetActive(false);

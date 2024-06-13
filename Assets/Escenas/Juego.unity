@@ -2142,6 +2142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1994547770}
   - {fileID: 2112391337}
   - {fileID: 1638485082}
   m_Father: {fileID: 0}
@@ -3354,6 +3355,7 @@ GameObject:
   - component: {fileID: 1638485086}
   - component: {fileID: 1638485083}
   - component: {fileID: 1638485085}
+  - component: {fileID: 1638485087}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -3445,7 +3447,6 @@ MonoBehaviour:
   anguloMax: 70
   anguloMin: -60
   controles: {fileID: 11400000, guid: 9e97ae864bca91d4abb9fbb07ad26218, type: 2}
-  transiciones: {fileID: 468464098}
 --- !u!143 &1638485086
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3472,6 +3473,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1638485087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638485081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d851f6c7620dbbb49b9e1a9c04f465fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controles: {fileID: 11400000, guid: 9e97ae864bca91d4abb9fbb07ad26218, type: 2}
 --- !u!1001 &1777577788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4147,8 +4161,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1001197900}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e56617b122cba0d4b885bc0f9898e149, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200.52606
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e56617b122cba0d4b885bc0f9898e149, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.97
@@ -4486,4 +4504,3 @@ SceneRoots:
   - {fileID: 1001197900}
   - {fileID: 553533844}
   - {fileID: 1548312220}
-  - {fileID: 1994547769}

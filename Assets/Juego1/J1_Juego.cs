@@ -19,8 +19,9 @@ public class J1_Juego : MonoBehaviour
     int[] cant_flechas = { 0, 0 }, aciertos = { 0, 0 };
     int max_flechas = 3;
     bool disponible;
+    bool stop;
 
-    const float TIEMPO_ESPERA = .5f, MAX_ESPERA_IA = 2;
+    const float TIEMPO_ESPERA = .5f, MAX_ESPERA_IA = 1.5f, TIEMPO_FIN = 1f;
 
     public void Iniciar(float rotacion, int max_flechas)
     {
@@ -52,6 +53,17 @@ public class J1_Juego : MonoBehaviour
 
         //Rotar centro
         centro.Rotate(new Vector3(0,0,1) * rotacion * Time.deltaTime);
+
+        //Terminar partida
+        if (cant_flechas[0] == max_flechas && cant_flechas[1] == max_flechas && !stop)
+        {
+            stop = true;
+            ControladorBG.Rutina(TIEMPO_FIN, () =>
+            {
+                Controlador.victoria = aciertos[0] > aciertos[1];
+                Controlador.transiciones.SetTrigger("Abrir");
+            });
+        }
     }
 
     void IA() 
@@ -65,13 +77,7 @@ public class J1_Juego : MonoBehaviour
 
     void Crear(int persona)
     {
-        if (max_flechas == cant_flechas[persona])
-        {
-            //Fin de persona X
-            return;
-        }
-
-        cant_flechas[persona]++;
+        if (max_flechas == cant_flechas[persona]) return;
 
         instanciadas[persona] = Instantiate(flechas[persona], transform);
         if(persona == 0) disponible = false;
@@ -87,6 +93,9 @@ public class J1_Juego : MonoBehaviour
     void Lanzar(int persona) 
     {
         if (instanciadas == null || instanciadas[persona] == null) return;
+
+        cant_flechas[persona]++;
+
         instanciadas[persona].GetComponent<J1_Flecha>().Lanzar(this, velocidad, centro, particulas, persona);
         Crear(persona);
     }
