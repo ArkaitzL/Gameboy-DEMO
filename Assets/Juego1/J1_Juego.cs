@@ -38,7 +38,7 @@ public class J1_Juego : MonoBehaviour
 
         //IA
         ControladorBG.Rutina(Random.Range(TIEMPO_ESPERA + 0.1f, MAX_ESPERA_IA), () => {
-            if (instanciadas == null || instanciadas[0] == null) return;
+            if (instanciadas == null || instanciadas[1] == null) return;
             IA();
         });
     }
@@ -70,7 +70,7 @@ public class J1_Juego : MonoBehaviour
     {
         Lanzar(1);
         ControladorBG.Rutina(Random.Range(TIEMPO_ESPERA + 0.1f, MAX_ESPERA_IA), () => {
-            if (instanciadas == null || instanciadas[0] == null) return;
+            if (instanciadas == null || instanciadas[1] == null) return;
             IA();
         });
     }
