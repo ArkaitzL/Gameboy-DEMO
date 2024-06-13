@@ -25,16 +25,16 @@ public class Interacciones : MonoBehaviour
 
     private void Update()
     {
-        if (Controlador.modoJuego) return;
+        if (J_Controlador.modoJuego) return;
         Interactuar();
     }
 
     void Npc(GameObject objeto) 
     {
-        Controlador.desafiado = objeto.GetComponent<Npc>();
-        Controlador.modoJuego = true;
+        J_Controlador.desafiado = objeto.GetComponent<Npc>();
+        J_Controlador.modoJuego = true;
 
-        Controlador.transiciones.SetTrigger("Abrir");
+        J_Controlador.transiciones.SetTrigger("Abrir");
     }
 
     void Interactuar()

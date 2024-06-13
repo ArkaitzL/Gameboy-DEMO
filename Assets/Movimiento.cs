@@ -36,7 +36,7 @@ public class Movimiento : MonoBehaviour
     {
         Mover();
 
-        if (Controlador.modoJuego) return;
+        if (J_Controlador.modoJuego) return;
         
         Rotar();
     }
@@ -47,7 +47,7 @@ public class Movimiento : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
 
         Vector3 movimiento = transform.TransformDirection(new Vector3(x, 0, z).normalized * velocidad);
-        cc.Move(Controlador.modoJuego ? Vector3.zero : movimiento * Time.deltaTime);
+        cc.Move(J_Controlador.modoJuego ? Vector3.zero : movimiento * Time.deltaTime);
     }
 
     void Rotar() 

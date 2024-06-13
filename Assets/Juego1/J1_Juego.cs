@@ -60,8 +60,8 @@ public class J1_Juego : MonoBehaviour
             stop = true;
             ControladorBG.Rutina(TIEMPO_FIN, () =>
             {
-                Controlador.victoria = aciertos[0] > aciertos[1];
-                Controlador.transiciones.SetTrigger("Abrir");
+                J_Controlador.victoria = aciertos[0] > aciertos[1];
+                J_Controlador.transiciones.SetTrigger("Abrir");
             });
         }
     }

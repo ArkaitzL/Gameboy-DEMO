@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controlador : MonoBehaviour
+public class J_Controlador : MonoBehaviour
 {
     [SerializeField] GameObject camara1, camara2;
     [SerializeField] GameObject uiJugador;
@@ -16,7 +16,7 @@ public class Controlador : MonoBehaviour
     public static Npc desafiado = null;
     public static bool victoria;
 
-    public static Controlador inst;
+    public static J_Controlador inst;
 
     private void Awake()
     {
@@ -50,7 +50,10 @@ public class Controlador : MonoBehaviour
         modoJuego = false;
 
         Destroy(juego);
-        if (victoria) desafiado.Perder();
+        if (victoria) {
+            desafiado.Perder();
+            Niveles.inst.perdidos_enemigos++;
+        }
 
         modoJuego = false;
         desafiado = null;
