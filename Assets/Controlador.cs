@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controlador : MonoBehaviour
 {
     [SerializeField] GameObject camara1, camara2;
-    [SerializeField] GameObject cursor;
+    [SerializeField] GameObject uiJugador;
     [SerializeField] Transform padre_juegos;
     [SerializeField] List<GameObject> juegos;
 
@@ -42,7 +42,7 @@ public class Controlador : MonoBehaviour
         camara1.SetActive(false);
         camara2.SetActive(true);
 
-        cursor.SetActive(false);
+        uiJugador.SetActive(false);
     }
 
     void ModoNormal() 
@@ -58,6 +58,6 @@ public class Controlador : MonoBehaviour
         camara1.SetActive(true);
         camara2.SetActive(false);
 
-        cursor.SetActive(true);
+        uiJugador.SetActive(true);
     }
 }
