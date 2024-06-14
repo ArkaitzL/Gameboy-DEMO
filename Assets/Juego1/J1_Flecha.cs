@@ -47,7 +47,7 @@ public class J1_Flecha : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Si chaca contra otra flecha se destruye
+        //Si choca contra otra flecha se destruye
         if (!lanzado) return;
         lanzado = false;
 
