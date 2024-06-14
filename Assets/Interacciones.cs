@@ -18,6 +18,7 @@ public class Interacciones : MonoBehaviour
 
     private void Start()
     {
+        // Lista de las interaciones -> TAG / FUNCION
         interacciones = new Dictionary<string, Interaccion>  {
             { "NPC", Npc }
         };
@@ -31,6 +32,7 @@ public class Interacciones : MonoBehaviour
 
     void Npc(GameObject objeto) 
     {
+        //Interactua con el personaje
         J_Controlador.desafiado = objeto.GetComponent<Npc>();
         J_Controlador.modoJuego = true;
 
@@ -42,22 +44,33 @@ public class Interacciones : MonoBehaviour
         Vector3 direccion = transform.forward;
         RaycastHit hit;
 
+        // Lanza un rayo de interaccion
         if (Physics.Raycast(transform.position, direccion, out hit, DISTANCIA_INTERACCION))
         {
-            if (Input.GetKeyDown(controles.interactuar))
+            foreach (var interaccion in interacciones)
             {
-                foreach (var interaccion in interacciones)
+                if (hit.collider.CompareTag(interaccion.Key))
                 {
-                    if (hit.collider.CompareTag(interaccion.Key)) interaccion.Value.Invoke(hit.collider.gameObject);
+                    //Ejecuta la funcion
+                    if (Input.GetKeyDown(controles.interactuar)) interaccion.Value.Invoke(hit.collider.gameObject);
+
+                    //Pinta el cursor
+                    cursor.color = color_interactuable;
+                    teclaUI.SetActive(true);
+                }
+                else 
+                {
+                    //Pinta el cursor
+                    cursor.color = color_no_interactuable;
+                    teclaUI.SetActive(false);
                 }
             }
-
-            cursor.color = color_interactuable;
-            teclaUI.SetActive(true);
-            return;
         }
-
-        cursor.color = color_no_interactuable;
-        teclaUI.SetActive(false);
+        else
+        {
+            //Pinta el 
+            cursor.color = color_no_interactuable;
+            teclaUI.SetActive(false);
+        }
     }
 }

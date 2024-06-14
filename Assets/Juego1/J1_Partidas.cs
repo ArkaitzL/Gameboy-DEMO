@@ -14,6 +14,7 @@ public class J1_Partidas : MonoBehaviour
 
     void Start()
     {
+        //Inicia el juego estableciendo valores random
         juego = GetComponent<J1_Juego>();
 
         ControladorBG.Rutina(TIEMPO_ESPERA, () => {

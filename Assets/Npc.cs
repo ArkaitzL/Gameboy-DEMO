@@ -10,6 +10,7 @@ public class Npc : MonoBehaviour
 
     void Start()
     {
+        //Pone una animacion random
         personaje = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
 
@@ -26,6 +27,7 @@ public class Npc : MonoBehaviour
 
     public void Perder() 
     {
+        //Cambia el tag y la anim al perder
         tag = "Untagged";
         animator.Play("Sentado");    
     }

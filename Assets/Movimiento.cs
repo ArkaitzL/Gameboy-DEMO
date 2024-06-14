@@ -27,7 +27,8 @@ public class Movimiento : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CharacterController>();
 
-        rb.freezeRotation = true; // Para evitar que el Rigidbody gire por la física
+        // Congela el cursor y el rb
+        rb.freezeRotation = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -35,9 +36,7 @@ public class Movimiento : MonoBehaviour
     void Update()
     {
         Mover();
-
         if (J_Controlador.modoJuego) return;
-        
         Rotar();
     }
 

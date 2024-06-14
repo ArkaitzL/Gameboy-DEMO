@@ -20,7 +20,9 @@ public class J1_Flecha : MonoBehaviour
     {
         if (!lanzado) return;
 
+        //Añade velocidad a la flecha
         transform.Translate((Vector3.up * direccion) * velocidad * Time.deltaTime);
+        //Si impacta en el centro se detenie
         if (transform.position.y < DISTANCIA_CENTRO &&  -DISTANCIA_CENTRO < transform.position.y )
         {
             juego.Puntuar(persona);
@@ -45,6 +47,7 @@ public class J1_Flecha : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        //Si chaca contra otra flecha se destruye
         if (!lanzado) return;
         lanzado = false;
 

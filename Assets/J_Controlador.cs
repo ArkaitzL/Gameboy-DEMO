@@ -26,12 +26,14 @@ public class J_Controlador : MonoBehaviour
 
     public void CambiarModo() 
     {
+        //Cambia entre modo juego y modo normal
         if (!camara1.activeSelf) ModoNormal();
         else ModoJuego();
     }
 
     void ModoJuego() 
     {
+        //Inastancia el juego y cambia las camaras
         if (juegos.Count != 0)
         {
             int random = Random.Range(0, juegos.Count);
@@ -47,10 +49,11 @@ public class J_Controlador : MonoBehaviour
 
     void ModoNormal() 
     {
+        //Destruye el juego y cambia las camaras
         modoJuego = false;
 
         Destroy(juego);
-        if (victoria) {
+        if (victoria) { // Gana el juego
             desafiado.Perder();
             Niveles.inst.perdidos_enemigos++;
         }
