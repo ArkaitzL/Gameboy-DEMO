@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using BaboOnLite;
 
 public class Interacciones : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Interacciones : MonoBehaviour
     {
         // Lista de las interaciones -> TAG / FUNCION
         interacciones = new Dictionary<string, Interaccion>  {
-            { "NPC", Npc }
+            { "TP", Tp },
+            { "NPC", Npc },
         };
     }
 
@@ -39,13 +41,17 @@ public class Interacciones : MonoBehaviour
         J_Controlador.transiciones.SetTrigger("Abrir");
     }
 
+    void Tp(GameObject objeto) 
+    {
+        objeto.GetComponent<TP>().Mover(transform);
+    }
+
     void Interactuar()
     {
-        Vector3 direccion = transform.forward;
-        RaycastHit hit;
 
         // Lanza un rayo de interaccion
-        if (Physics.Raycast(transform.position, direccion, out hit, DISTANCIA_INTERACCION))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, DISTANCIA_INTERACCION))
         {
             foreach (var interaccion in interacciones)
             {
@@ -57,6 +63,8 @@ public class Interacciones : MonoBehaviour
                     //Pinta el cursor
                     cursor.color = color_interactuable;
                     teclaUI.SetActive(true);
+
+                    break;
                 }
                 else 
                 {

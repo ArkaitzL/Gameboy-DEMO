@@ -5,6 +5,7 @@ using UnityEngine;
 public class Niveles : MonoBehaviour
 {
     [SerializeField] Transform[] niveles;
+    [SerializeField] GameObject[] puertas;
 
     [HideInInspector] public int perdidos_enemigos;
     int cant_enemigos;
@@ -28,7 +29,7 @@ public class Niveles : MonoBehaviour
         //TEMPORAL ***************
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Destroy(niveles[nivel_actual].Find("Puerta").gameObject);
+            Destroy(puertas[nivel_actual]);
 
             if (niveles.Length - 1 == nivel_actual)
             {
@@ -41,7 +42,7 @@ public class Niveles : MonoBehaviour
 
         if (!fin && cant_enemigos == perdidos_enemigos)
         {
-            Destroy(niveles[nivel_actual].Find("Puerta").gameObject); // *** Cambiar por busqueda por tag *** // *** Ponerle animacion *** //
+            Destroy(puertas[nivel_actual]);
 
             if (niveles.Length - 1 == nivel_actual) 
             {
