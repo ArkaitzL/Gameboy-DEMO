@@ -10,6 +10,7 @@ public class J_Controlador : MonoBehaviour
     [SerializeField] List<GameObject> juegos;
 
     GameObject juego;
+    Niveles niveles;
 
     public static Animator transiciones;
     public static bool modoJuego = false;
@@ -24,6 +25,11 @@ public class J_Controlador : MonoBehaviour
         transiciones = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        niveles = Niveles.inst;
+    }
+
     public void CambiarModo() 
     {
         //Cambia entre modo juego y modo normal
@@ -36,7 +42,7 @@ public class J_Controlador : MonoBehaviour
         //Inastancia el juego y cambia las camaras
         if (juegos.Count != 0)
         {
-            int random = Random.Range(0, juegos.Count);
+            int random = Random.Range(0, (niveles.nivel_actual + 1  < juegos.Count) ? niveles.nivel_actual + 1 : juegos.Count);
             juego = Instantiate(juegos[random], padre_juegos);
         }
         else Debug.LogWarning("Faltan juegos");

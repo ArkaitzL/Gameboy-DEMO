@@ -8,8 +8,8 @@ public class Niveles : MonoBehaviour
     [SerializeField] GameObject[] puertas;
 
     [HideInInspector] public int perdidos_enemigos;
+    [HideInInspector] public int nivel_actual = -1;
     int cant_enemigos;
-    int nivel_actual = -1;
     bool fin;
 
     public static Niveles inst;

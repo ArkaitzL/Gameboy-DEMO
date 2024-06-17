@@ -1635,6 +1635,7 @@ MonoBehaviour:
   padre_juegos: {fileID: 1548312220}
   juegos:
   - {fileID: 8519760872750952481, guid: 965ac46f006af674c8ce2ac1bc439431, type: 3}
+  - {fileID: 9143657399094854904, guid: 27b5c89b37ab2d34ab6e3af0c0f681b0, type: 3}
 --- !u!1 &474830777
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,6 +4000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Ba\xF1oCerrado (3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 6592401360930831907, guid: c6e3d7d5f5b84a046a105852706f7117, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4660,6 +4665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1001197900}
   - component: {fileID: 1001197901}
+  - component: {fileID: 1001197902}
   m_Layer: 0
   m_Name: Principal
   m_TagString: Untagged
@@ -4705,6 +4711,19 @@ MonoBehaviour:
   - {fileID: 1892199771}
   - {fileID: 804034545}
   perdidos_enemigos: 0
+  nivel_actual: -1
+--- !u!114 &1001197902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001197899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981bc9a231325704d8ac7b3dee8ff529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1006791532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7037,7 +7056,7 @@ Transform:
   m_GameObject: {fileID: 1610714841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.46, z: 1.02}
+  m_LocalPosition: {x: 3.87, y: 1.46, z: -4.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7050,7 +7069,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610714841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
